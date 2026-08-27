@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quicknook-frontend
+  namespace: quicknook
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: quicknook-frontend
+  template:
+    metadata:
+      labels:
+        app: quicknook-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: docker.io/ramakrishnapanda2001/quicknook-frontend:1.0
+          ports:
+            - containerPort: 80

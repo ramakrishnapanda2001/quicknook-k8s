@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quicknook-backend
+  namespace: quicknook
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: quicknook-backend
+
+  template:
+    metadata:
+      labels:
+        app: quicknook-backend
+
+    spec:
+      containers:
+        - name: backend
+
+          image: docker.io/ramakrishnapanda2001/quicknook-backend:1.1
+
+          env:
+            # =========================
+            # MySQL Configuration
+            # =========================
+
+            - name: SPRING_DATASOURCE_URL
+              value: "jdbc:mysql://quicknook-mysql:3306/quicknook"
+
+            - name: SPRING_DATASOURCE_USERNAME
+              value: "root"
+
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: quicknook-secret
+                  key: MYSQL_ROOT_PASSWORD
+
+          ports:
+            - containerPort: 8080

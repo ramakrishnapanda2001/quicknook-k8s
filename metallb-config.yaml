@@ -1,0 +1,18 @@
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: quicknook-pool
+  namespace: metallb-system
+spec:
+  addresses:
+    - 172.26.7.240-172.26.7.250
+
+---
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  name: quicknook-l2
+  namespace: metallb-system
+spec:
+  ipAddressPools:
+    - quicknook-pool
