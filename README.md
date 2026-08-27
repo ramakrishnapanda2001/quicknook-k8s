@@ -130,7 +130,7 @@ metadata:
   namespace: metallb-system
 spec:
   addresses:
-    - 172.26.7.240-172.26.7.250
+    - x.x.x.240-x.x.x.250
 
 ---
 apiVersion: metallb.io/v1beta1
