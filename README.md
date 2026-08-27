@@ -165,10 +165,10 @@ kubectl get l2advertisement -n metallb-system
 
 # 4. QuickNook Kubernetes Namespace
 
-Check the QuickNook namespace:
+Create QuickNook namespace:
 
 ```bash
-kubectl get namespace
+kubectl create namespace quicknook
 ```
 
 Check all resources inside the namespace:
