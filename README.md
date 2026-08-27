@@ -452,21 +452,21 @@ kubectl get l2advertisement -n metallb-system
 quicknook-k8s/
 │
 ├── README.md
-├── metallb-config.yaml
 │
-├── namespace.yaml
+├── k8s/
+│   ├── namespace.yaml
+│   ├── mysql.yaml
+│   ├── backend.yaml
+│   ├── frontend.yaml
+│   ├── metallb-config.yaml
+│   └── ...
 │
-├── mysql/
-│   ├── mysql-service.yaml
-│   └── mysql-statefulset.yaml
+├── frontend/
+│   ├── Dockerfile
+│   └── nginx.conf
 │
-├── backend/
-│   ├── backend-deployment.yaml
-│   └── backend-service.yaml
-│
-└── frontend/
-    ├── frontend-deployment.yaml
-    └── frontend-service.yaml
+└── backend/
+    └── Dockerfile
 ```
 
 ---
